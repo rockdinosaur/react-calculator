@@ -6,9 +6,18 @@ class ButtonContainer extends React.Component {
   }
 
   numbers = () => {
-    return [0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map(n => {
+    return this.props.numbers.map(n => {
       return (<NumberButton
                 number={n}
+                handleButtonClick={this.handleButtonClick}
+              />)
+    })
+  }
+
+  operations = () => {
+    return this.props.operations.map(n => {
+      return (<OperationButton
+                operation={n}
                 handleButtonClick={this.handleButtonClick}
               />)
     })
@@ -17,6 +26,8 @@ class ButtonContainer extends React.Component {
   render() {
     return (
       <div>
+        {this.operations()}
+        <br/>
         {this.numbers()}
       </div>
     )
